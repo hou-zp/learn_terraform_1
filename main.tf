@@ -20,7 +20,7 @@ resource "alicloud_security_group" "asg" {
 resource "alicloud_instance" "instance" {
   # cn-beijing
   availability_zone = "{$var.az}"
-  security_groups = alicloud_security_group.default.*.id
+  security_groups = alicloud_security_group.asg.*.id
   # series III
   instance_type        = "ecs.n2.small"
   image_id             = "ubuntu_18_04_64_20G_alibase_20190624.vhd"
@@ -36,6 +36,6 @@ resource "alicloud_security_group_rule" "allow_all_tcp" {
   policy            = "accept"
   port_range        = "1/65535"
   priority          = 1
-  security_group_id = alicloud_security_group.default.id
+  security_group_id = alicloud_security_group.asg.id
   cidr_ip           = "0.0.0.0/0"
 }
