@@ -28,3 +28,13 @@ resource "alicloud_instance" "instance" {
   vswitch_id = alicloud_vswitch.vsw.id
   internet_max_bandwidth_out = 10
 }
+
+resource "ansible_host" "web" {
+  inventory_hostname = alicloud_instance.instance.public_ip
+  groups             = ["web"]
+  vars = {
+    port         = 80
+    ansible_user = "ubuntu"
+  }
+}
+
