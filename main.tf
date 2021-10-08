@@ -19,7 +19,7 @@ resource "alicloud_security_group" "asg" {
 
 resource "alicloud_instance" "instance" {
   # cn-beijing
-  availability_zone = "{$var.az}"
+  availability_zone = "cn-beijing-b"
   security_groups = alicloud_security_group.asg.*.id
   # series III
   instance_type        = "ecs.n2.small"
