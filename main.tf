@@ -22,8 +22,7 @@ resource "alicloud_instance" "instance" {
   security_groups = alicloud_security_group.default.*.id
   # series III
   instance_type        = "ecs.n2.small"
-  system_disk_category = "cloud_efficiency"
-  image_id             = "centos_7_05_64_20G_alibase_20181210.vhd"
+  image_id             = "ubuntu_18_04_64_20G_alibase_20190624.vhd"
   instance_name        = "test_foo"
   vswitch_id = alicloud_vswitch.vsw.id
   internet_max_bandwidth_out = 10
