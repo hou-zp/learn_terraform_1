@@ -5,6 +5,6 @@ variable "region" {
 }
 
 variable "az" {
-  default     = "cn-hangzhou-b"
+  default     = "cn-beijing-b"
   description = "avaibility zone"
 }
