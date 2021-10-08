@@ -18,16 +18,4 @@ resource "alicloud_instance" "instance" {
   system_disk_category = "cloud_efficiency"
   image_id             = "centos_7_05_64_20G_alibase_20181210.vhd"
   instance_name        = "test_foo"
-  internet_max_bandwidth_out = 10
-}
-
-resource "alicloud_security_group_rule" "allow_all_tcp" {
-  type              = "ingress"
-  ip_protocol       = "tcp"
-  nic_type          = "intranet"
-  policy            = "accept"
-  port_range        = "1/65535"
-  priority          = 1
-  security_group_id = alicloud_security_group.default.id
-  cidr_ip           = "0.0.0.0/0"
 }
