@@ -9,7 +9,7 @@ resource "alicloud_vpc" "vpc" {
 resource "alicloud_vswitch" "vsw" {
   vpc_id            = alicloud_vpc.vpc.id
   cidr_block        = "172.16.0.0/24"
-  zone_id           = "cn-beijing-b"
+  zone_id           = var.az
 }
 
 resource "alicloud_security_group" "asg" {
@@ -19,7 +19,7 @@ resource "alicloud_security_group" "asg" {
 
 resource "alicloud_instance" "instance" {
   # cn-beijing
-  availability_zone = "cn-beijing-b"
+  availability_zone = var.az
   security_groups = alicloud_security_group.asg.*.id
   # series III
   instance_type        = "ecs.n2.small"
