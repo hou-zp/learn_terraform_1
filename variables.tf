@@ -1,6 +1,6 @@
 variable "region" {
   description = "alicloud region"
-  default     = "cn-hangzhou"
+  default     = "cn-beijing"
   type        = string
 }
 
